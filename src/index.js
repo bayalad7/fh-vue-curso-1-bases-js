@@ -1,12 +1,9 @@
-// Var, Let y Const
-const nombre = "Tony";
-const apellido = "Stark";
-console.log({nombre, apellido});
-if( true ){
-	let nombre = "";
-		nombre = "Peter";
-	const apellido = "Parker";
-	console.log({nombre, apellido});
-	console.log({global});
-}
-var global = "Variable Global";
+// Plantillas literales
+const nombre = "Benjamín";
+const apellido = "Ayala";
+const nombreCompleto = `${nombre} ${apellido.toUpperCase()}`;
+console.log({nombreCompleto});
+console.log(`Resultado de la suma: ${3+4}`);
+
+const saludar = (nombre) => `Hola ${nombre}`;
+console.log(`Este es un mensaje de Juan: ${saludar("Benjamín")}`);
