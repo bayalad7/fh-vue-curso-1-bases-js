@@ -1,29 +1,31 @@
 const heroes = [
-    {
-        id: 1,
-        name: 'Batman',
-        owner: 'DC'
-    },
-    {
-        id: 2,
-        name: 'Spiderman',
-        owner: 'Marvel'
-    },
-    {
-        id: 3,
-        name: 'Superman',
-        owner: 'DC'
-    },
-    {
-        id: 4,
-        name: 'Flash',
-        owner: 'DC'
-    },
-    {
-        id: 5,
-        name: 'Wolverine',
-        owner: 'Marvel'
-    },
+	{
+		id: 1,
+		nombre: 'Batman',
+		comic: 'DC'
+	},
+	{
+		id: 2,
+		nombre: 'Spiderman',
+		comic: 'Marvel'
+	},
+	{
+		id: 3,
+		nombre: 'Superman',
+		comic: 'DC'
+	},
+	{
+		id: 4,
+		nombre: 'Flash',
+		comic: 'DC'
+	},
+	{
+		id: 5,
+		nombre: 'Wolverine',
+		comic: 'Marvel'
+	}
 ];
 
-const owners = ['DC','Marvel'];
+export const comics = ['DC', 'Marvel'];
+
+export default heroes;

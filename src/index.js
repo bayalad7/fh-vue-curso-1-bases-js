@@ -1,21 +1,10 @@
-// Desestructuración de arreglos
-const personajes = ['Goku', 'Vegeta', 'Trunks', 'Krilin'];
+// Importaciones y exportaciones
 
-const [Goku, Vegeta, Trunks] = personajes;
-console.log( Goku, Vegeta, Trunks );
+// Importación y exportación de un elemento.
+import {comics} from './data/heroes';
+const [DC, Marvel] = comics;
+console.log( DC, Marvel );
 
-const [ , , soloTrunks] = personajes;
-console.log( soloTrunks );
-
-const [ , , , Krilin = "No tiene valor" ] = personajes;
-console.log( Krilin ); // No tiene valor
-
-const informacionPersona = () =>{
-	return ["Benjamín", "Ayala"]
-}
-const [nombre, apellido] = informacionPersona();
-console.log( nombre, apellido ) // Benjamín Ayala
-
-const informacionPersona2 = ([nombre, apellido]) => [nombre, apellido];
-const [nombre2, apellido2] = informacionPersona2(["Orlando", "Ayala"]);
-console.log( nombre2, apellido2 ) // Orlando Ayala
+// Importación y exportación por defecto.
+import superHeroes from './data/heroes';
+console.log( superHeroes );
