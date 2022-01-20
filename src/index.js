@@ -1,77 +1,49 @@
-// Funciones normales
+// Desestructuración de objetos
+const persona = {
+	nombre: "Benjamín",
+	apellido: "Ayala",
+	edad: 29,
+	apodo: "Benyi"
+};
+// console.log(persona.nombre); // Benjamín
+// console.log(persona.apellido); // Ayala
+// console.log(persona.edad); // 29
+// console.log(persona.apodo); // Benyi
 
-// Función normal que puede ser modificada
-function saludo(nombre){
-	console.log(`Hola ${nombre}!`);
-}
-saludo("Pedro");
+const { nombre, apellido, edad, apodo, altura, peso = '80kg' } = persona;
+// console.log(nombre); // Benjamín
+// console.log(apellido); // Ayala
+// console.log(edad); // 29
+// console.log(apodo); // Benyi
+// console.log(altura); // undefined
+// console.log(peso); // 80kg
 
-// Función segura en una variable constante
-const otroSaludo = function(nombre){
-	console.log(`Hola ${nombre}!`);
-}
-otroSaludo("Juan");
-
-// Función con referencia
-function nuevoSaludo(nombre){
-	console.log(`Hola ${nombre}!`);
-}
-const referenciaFuncion = nuevoSaludo;
-referenciaFuncion("Pedro");
-
-// Funciones de flecha
-const elSaludo = (nombre) => console.log(`Hola ${nombre}!`);
-elSaludo("Mariana");
-
-// Funciones de flecha con retorno de objetos
-const datosUsuario = () => { 
+// Desestructuración de los objetos en los argumentos de las funciones.
+// 1. Desestructuración del objeto dentro de la función
+const crearHeroe = ( persona ) => {
+	const { nombre, apellido, edad, apodo, altura } = persona;
 	return {
-		id: 1,
-		nombre: "Benjamín",
-		apellido: "Ayala",
-		usuario: "bayalad7"
-	}
+		id: Math.floor(Math.random() * 100),
+		nombre: nombre,
+		apellido: apellido,
+		edad: edad,
+		apodo: apodo,
+		altura: altura
+	};
 };
 
-const otroUsuario = () => ({
-	id: 2,
-	nombre: "Pedro",
-	apellido: "Lee",
-	usuario: "pdl1"
-});
-
-console.log( datosUsuario() );
-console.log( otroUsuario() );
-
-const heroes = [{
-	id: 1,
-	nombre: "Batman"
-},{
-	id: 2,
-	nombre: "Superman"
-},{
-	id: 3,
-	nombre: "Spiderman"
-},{
-	id: 4,
-	nombre: "Ironman"
-},{
-	id: 5,
-	nombre: "Dr Strange"
-}];
-
-// Función de flecha con método some() que comprueba si al menos un elemento del arreglo cumple con la condición implementada por la función proporcionada.
-// Existe heroe.id = 1
-const encontro = heroes.some( (heroe) => heroe.id === 1 );
-console.log({encontro}); // {encontro: true}
-
-// Función de flecha con método find() que devuelve el valor del primer elemento del arreglo que cumple con la condición implementada por la función proporcionada.
-// Buscar heroe.id = 1, si find no encuentra nada retornará undefined
-const heroe = heroes.find( (heroe) => heroe.id === 1 );
-console.log({heroe}); // heroe: {id: 1, nombre: 'Batman'}
-console.log(heroe.nombre); // Batman
-
-// Función de flecha con destructuración de un objeto
-const {nombre, id} = heroes.find( (heroe) => heroe.id === 1 );
-console.log(id); // 1
-console.log(nombre); // Batman
+// 2. Desestructuración del objeto desde los argumentos de la función.
+const crearHeroe2 = ( { nombre, apellido:apellidoPaterno, edad, apodo, altura } ) => (
+	// Cuando tenemos el caso en el que una propiedad tiene el mismo nombre que el nombre de una variable o constante que tengamos en nuestro código, podemos obviar la relación de la propiedad con el nombre de la variable. 
+	// Relación de las propiedades con las variables constantes, los nombres serán las llaves y los valores serán lo que se tenga asignado en las variables constantes
+	{
+		id: Math.floor(Math.random() * 100),
+		nombre,
+		apellidoPaterno,
+		edad,
+		apodo,
+		altura
+	}
+);
+console.log( crearHeroe(persona) );
+console.log( crearHeroe2(persona) );
